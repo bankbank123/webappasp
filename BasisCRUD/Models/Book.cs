@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace BasisCRUD.Models.db​;
+namespace BasisCRUD.Models;
 
 public partial class Book
 {
@@ -19,7 +18,8 @@ public partial class Book
     public double BookCost { get; set; }
 
     public double? BookPrice { get; set; }
-    public virtual Category? Category { get; set; } 
 
-    public virtual Publisher? Publish { get; set; } 
+    public virtual Category? Category { get; set; }
+
+    public virtual Publisher? Publish { get; set; }
 }

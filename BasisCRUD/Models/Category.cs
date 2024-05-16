@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace BasisCRUD.Models.db​;
+namespace BasisCRUD.Models;
 
 public partial class Category
 {
@@ -10,9 +10,4 @@ public partial class Category
     public string CategoryName { get; set; } = null!;
 
     public virtual ICollection<Book> Books { get; } = new List<Book>();
-
-    public static implicit operator Category(List<Category> v)
-    {
-        throw new NotImplementedException();
-    }
 }

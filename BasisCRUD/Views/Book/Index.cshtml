@@ -1,4 +1,10 @@
-@model IEnumerable<BasisCRUD.Models.db.Book>;
+﻿@model IEnumerable<BasisCRUD.Models.Book>;
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
 @{
     ViewData["Title"] = "Index";
 }
@@ -20,13 +26,14 @@ else
                 <td>ประเภทหนังสือ</td>
                 <td>ชื่อผู้จัดพิมพ์</td>
                 <td>ISBN</td>
+                <td>ค่าหนังสือ</td>
                 <td>ราคาหนังสือ</td>
-                <td>จำนวนหนังสือ</td>
                 <td>ปรับปรุง</td>
             </tr>
         </thead>
         <tbody>
-            @foreach(var item in Model){
+            @foreach (var item in Model)
+            {
                 <tr>
                     <td>@item.BookId</td>
                     <td>@item.BookName</td>
@@ -36,7 +43,8 @@ else
                     <td>@item.BookCost</td>
                     <td>@item.BookPrice</td>
                     <td>
-                        <a class="btn btn-warning" asp-controller="Book" asp-action="Update" asp-route-id="@item.BookId" onclick="return confirm('Do you want to update ID : @item.BookId?')">Update</a>
+                        <a class="btn btn-primary" asp-controller="Book" asp-action="Details" asp-route-id="@item.BookId" onclick="return confirm('Do you want to update ID : @item.BookId?')">Details</a>
+                        <a class="btn btn-warning" asp-controller="Book" asp-action="Edit" asp-route-id="@item.BookId" onclick="return confirm('Do you want to update ID : @item.BookId?')">Update</a>
                         <a class="btn btn-danger" asp-controller="Book" asp-action="Delete" asp-route-id="@item.BookId" onclick="return confirm('Do you want to Delete ID : @item.BookId?')">Delete</a>
                     </td>
                 </tr>

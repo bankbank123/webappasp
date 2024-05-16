@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace BasisCRUD.Models.db​;
+namespace BasisCRUD.Models;
 
 public partial class DemoDbContext : DbContext
 {
@@ -29,7 +29,7 @@ public partial class DemoDbContext : DbContext
     {
         modelBuilder.Entity<Book>(entity =>
         {
-            entity.HasKey(e => e.BookId).HasName("PK__Book__3DE0C2276B9C9CE5");
+            entity.HasKey(e => e.BookId).HasName("PK__Book__3DE0C227028A7F32");
 
             entity.ToTable("Book");
 
@@ -44,17 +44,17 @@ public partial class DemoDbContext : DbContext
             entity.HasOne(d => d.Category).WithMany(p => p.Books)
                 .HasForeignKey(d => d.CategoryId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Book__CategoryID__03F0984C");
+                .HasConstraintName("FK__Book__CategoryID__1DB06A4F");
 
             entity.HasOne(d => d.Publish).WithMany(p => p.Books)
                 .HasForeignKey(d => d.PublishId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Book__PublishID__04E4BC85");
+                .HasConstraintName("FK__Book__PublishID__1EA48E88");
         });
 
         modelBuilder.Entity<Category>(entity =>
         {
-            entity.HasKey(e => e.CategoryId).HasName("PK__Category__19093A2B6CCB0F19");
+            entity.HasKey(e => e.CategoryId).HasName("PK__Category__19093A2BA1D2AA56");
 
             entity.ToTable("Category");
 
@@ -64,7 +64,7 @@ public partial class DemoDbContext : DbContext
 
         modelBuilder.Entity<Publisher>(entity =>
         {
-            entity.HasKey(e => e.PublishId).HasName("PK__Publishe__C259F1332BFE5299");
+            entity.HasKey(e => e.PublishId).HasName("PK__Publishe__C259F133BFE2B96B");
 
             entity.ToTable("Publisher");
 

@@ -1,4 +1,4 @@
-    global using BasisCRUD.Models.db;
+global using BasisCRUD.Models;
     global using Microsoft.EntityFrameworkCore;
 
     var builder = WebApplication.CreateBuilder(args);

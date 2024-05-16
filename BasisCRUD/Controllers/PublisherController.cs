@@ -1,5 +1,4 @@
-﻿using BasisCRUD.Models.db;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BasisCRUD.Controllers
