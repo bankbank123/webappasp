@@ -1,0 +1,47 @@
+@model IEnumerable<BasisCRUD.Models.db.Book>;
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>รายการหนังสือ</h1>
+<a class="btn btn-primary" asp-controller="Book" asp-action="Create">Create</a>
+
+@if (Model.Count() <= 0)
+{
+    <div class="alert alert-danger">ไม่มีข้อมูลในระบบ</div>
+}
+else
+{
+    <table id="mytable">
+        <thead>
+            <tr>
+                <td>รหัสหนังสือ</td>
+                <td>ชื่อหนังสือ</td>
+                <td>ประเภทหนังสือ</td>
+                <td>ชื่อผู้จัดพิมพ์</td>
+                <td>ISBN</td>
+                <td>ราคาหนังสือ</td>
+                <td>จำนวนหนังสือ</td>
+                <td>ปรับปรุง</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model){
+                <tr>
+                    <td>@item.BookId</td>
+                    <td>@item.BookName</td>
+                    <td>@item.Category?.CategoryName</td>
+                    <td>@item.Publish?.PublishName</td>
+                    <td>@item.Isbn</td>
+                    <td>@item.BookCost</td>
+                    <td>@item.BookPrice</td>
+                    <td>
+                        <a class="btn btn-warning" asp-controller="Book" asp-action="Update" asp-route-id="@item.BookId" onclick="return confirm('Do you want to update ID : @item.BookId?')">Update</a>
+                        <a class="btn btn-danger" asp-controller="Book" asp-action="Delete" asp-route-id="@item.BookId" onclick="return confirm('Do you want to Delete ID : @item.BookId?')">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}
